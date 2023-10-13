@@ -232,7 +232,6 @@
       <input_port name="seconds">Time to check if expired</input_port>
     </Condition>
 
-
     <Condition ID="PathExpiringTimer">
       <input_port name="seconds">Time to check if expired</input_port>
       <input_port name="path">Check if path has been updated to enable timer reset</input_port>
@@ -243,6 +242,10 @@
 
     <Condition ID="IsPathValid">
       <input_port name="path"> Path to validate </input_port>
+      <input_port name="server_timeout"> Server timeout </input_port>
+    </Condition>
+
+    <Condition ID="CanRobotRoll">
       <input_port name="server_timeout"> Server timeout </input_port>
     </Condition>
 
