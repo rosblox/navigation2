@@ -114,6 +114,12 @@
       <input_port name="server_timeout">Server timeout</input_port>
     </Action>
 
+    <Action ID="Morph">
+      <input_port name="to">Shape to morph to</input_port>
+      <input_port name="server_name">Server name</input_port>
+      <input_port name="server_timeout">Server timeout</input_port>
+    </Action>
+
     <Action ID="NavigateToPose">
         <input_port name="goal">Goal</input_port>
         <input_port name="server_name">Server name</input_port>

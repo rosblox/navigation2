@@ -18,6 +18,7 @@ find_package(std_msgs REQUIRED)
 find_package(std_srvs REQUIRED)
 find_package(nav2_util REQUIRED)
 find_package(slope_estimation_interfaces REQUIRED)
+find_package(winch_control_interfaces REQUIRED)
 
 nav2_package()
 
@@ -43,6 +44,7 @@ set(dependencies
   std_srvs
   nav2_util
   slope_estimation_interfaces
+  winch_control_interfaces
 )
 
 add_library(${library_name} SHARED
@@ -82,6 +84,9 @@ list(APPEND plugin_libs nav2_smooth_path_action_bt_node)
 
 add_library(nav2_follow_path_action_bt_node SHARED plugins/action/follow_path_action.cpp)
 list(APPEND plugin_libs nav2_follow_path_action_bt_node)
+
+add_library(nav2_morph_action_bt_node SHARED plugins/action/morph_action.cpp)
+list(APPEND plugin_libs nav2_morph_action_bt_node)
 
 add_library(nav2_back_up_action_bt_node SHARED plugins/action/back_up_action.cpp)
 list(APPEND plugin_libs nav2_back_up_action_bt_node)
