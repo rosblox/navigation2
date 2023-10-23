@@ -26,28 +26,16 @@ MorphAction::MorphAction(
   const BT::NodeConfiguration & conf)
 : BtActionNode<winch_control_interfaces::action::Morph>(xml_tag_name, action_name, conf)
 {
+  getInput("to", goal_.to);
 }
 
 void MorphAction::on_tick()
 {
-  getInput("to", goal_.to);
 }
 
 void MorphAction::on_wait_for_result(
   std::shared_ptr<const winch_control_interfaces::action::Morph::Feedback>/*feedback*/)
 {
-
-  // Grab the shape
-  std::string to;
-  getInput("to", to);
-
-  // Check if it is not same with the current one
-  if (goal_.to != to) {
-    // the action server on the next loop iteration
-    goal_.to = to;
-    goal_updated_ = true;
-  }
-
 }
 
 }  // namespace nav2_behavior_tree
