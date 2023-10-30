@@ -17,7 +17,6 @@ find_package(tf2_geometry_msgs REQUIRED)
 find_package(std_msgs REQUIRED)
 find_package(std_srvs REQUIRED)
 find_package(nav2_util REQUIRED)
-find_package(slope_estimation_interfaces REQUIRED)
 find_package(winch_control_interfaces REQUIRED)
 
 nav2_package()
@@ -43,7 +42,6 @@ set(dependencies
   std_msgs
   std_srvs
   nav2_util
-  slope_estimation_interfaces
   winch_control_interfaces
 )
 
