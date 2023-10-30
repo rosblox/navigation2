@@ -26,7 +26,7 @@ CanRobotRollCondition::CanRobotRollCondition(
 : BT::ConditionNode(condition_name, conf)
 {
   node_ = config().blackboard->get<rclcpp::Node::SharedPtr>("node");
-  client_ = node_->create_client<slope_estimation_interfaces::srv::GetFloat32>("/slope_estimator/get_slope_estimate");
+  client_ = node_->create_client<winch_control_interfaces::srv::GetFloat32>("/terrain_estimation_node/can_robot_roll");
 
   server_timeout_ = config().blackboard->template get<std::chrono::milliseconds>("server_timeout");
   getInput<std::chrono::milliseconds>("server_timeout", server_timeout_);
@@ -34,18 +34,17 @@ CanRobotRollCondition::CanRobotRollCondition(
 
 BT::NodeStatus CanRobotRollCondition::tick()
 {
-  auto request = std::make_shared<slope_estimation_interfaces::srv::GetFloat32::Request>();
+  auto request = std::make_shared<winch_control_interfaces::srv::GetFloat32::Request>();
 
   auto result = client_->async_send_request(request);
 
   if (rclcpp::spin_until_future_complete(node_, result, server_timeout_) ==
     rclcpp::FutureReturnCode::SUCCESS)
   {
-    if (result.get()->data >= 5.0) {
+    if (result.get()->data >= 1.0) {
       return BT::NodeStatus::SUCCESS;
     }
   }
-  // return BT::NodeStatus::SUCCESS;
   return BT::NodeStatus::FAILURE;
 }
 

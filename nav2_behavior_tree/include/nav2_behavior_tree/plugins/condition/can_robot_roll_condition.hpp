@@ -21,7 +21,7 @@
 #include "rclcpp/rclcpp.hpp"
 #include "behaviortree_cpp_v3/condition_node.h"
 #include "geometry_msgs/msg/pose_stamped.hpp"
-#include "slope_estimation_interfaces/srv/get_float32.hpp"
+#include "winch_control_interfaces/srv/get_float32.hpp"
 
 namespace nav2_behavior_tree
 {
