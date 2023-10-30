@@ -63,7 +63,7 @@ public:
 
 private:
   rclcpp::Node::SharedPtr node_;
-  rclcpp::Client<slope_estimation_interfaces::srv::GetFloat32>::SharedPtr client_;
+  rclcpp::Client<winch_control_interfaces::srv::GetFloat32>::SharedPtr client_;
   // The timeout value while waiting for a responce from the
   // is path valid service
   std::chrono::milliseconds server_timeout_;
